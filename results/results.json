@@ -1,0 +1,119 @@
+{
+  "summary": {
+    "n_nodes": 173,
+    "n_edges": 419,
+    "n_calls": 151,
+    "direct": {
+      "flat_recall@5": 0.9,
+      "flat_recall@10": 0.9,
+      "graph_recall@5": 1.0,
+      "graph_recall@10": 1.0
+    },
+    "multihop": {
+      "flat_recall@10": 0.8333333333333334,
+      "graph_recall@10": 0.9166666666666666,
+      "flat_gold_cov": 0.6666666666666666,
+      "graph_gold_cov": 0.6666666666666666,
+      "flat_tokens": 1039.3333333333333,
+      "graph_tokens": 1087.3333333333333
+    }
+  },
+  "direct": [
+    {
+      "query": "token is expired, expiration claim validation fails",
+      "gold": [
+        "jwt/api_jwt.py"
+      ],
+      "flat_recall@5": 1.0,
+      "flat_recall@10": 1.0,
+      "graph_recall@5": 1.0,
+      "graph_recall@10": 1.0
+    },
+    {
+      "query": "HMAC RSA ECDSA signing and verification algorithm",
+      "gold": [
+        "jwt/algorithms.py"
+      ],
+      "flat_recall@5": 1.0,
+      "flat_recall@10": 1.0,
+      "graph_recall@5": 1.0,
+      "graph_recall@10": 1.0
+    },
+    {
+      "query": "fetch JSON web keys from JWKS endpoint",
+      "gold": [
+        "jwt/jwks_client.py"
+      ],
+      "flat_recall@5": 1.0,
+      "flat_recall@10": 1.0,
+      "graph_recall@5": 1.0,
+      "graph_recall@10": 1.0
+    },
+    {
+      "query": "decode token and verify its signature",
+      "gold": [
+        "jwt/api_jws.py",
+        "jwt/api_jwt.py"
+      ],
+      "flat_recall@5": 0.5,
+      "flat_recall@10": 0.5,
+      "graph_recall@5": 1.0,
+      "graph_recall@10": 1.0
+    },
+    {
+      "query": "base64url encode decode with padding",
+      "gold": [
+        "jwt/utils.py"
+      ],
+      "flat_recall@5": 1.0,
+      "flat_recall@10": 1.0,
+      "graph_recall@5": 1.0,
+      "graph_recall@10": 1.0
+    }
+  ],
+  "multihop": [
+    {
+      "query": "which modules does the JWS encode pipeline depend on internally",
+      "seed": "PyJWS.encode",
+      "gold": [
+        "jwt/algorithms.py",
+        "jwt/api_jwt.py",
+        "jwt/jwk_set_cache.py",
+        "jwt/utils.py"
+      ],
+      "flat_recall@10": 0.5,
+      "graph_recall@10": 0.75,
+      "flat_tokens": 1428,
+      "graph_tokens": 1081,
+      "flat_gold_cov": 0.5,
+      "graph_gold_cov": 0.5
+    },
+    {
+      "query": "what code paths call into the base64url decode helper",
+      "seed": "base64url_decode",
+      "gold": [
+        "jwt/algorithms.py",
+        "jwt/api_jws.py"
+      ],
+      "flat_recall@10": 1.0,
+      "graph_recall@10": 1.0,
+      "flat_tokens": 1368,
+      "graph_tokens": 1068,
+      "flat_gold_cov": 0.5,
+      "graph_gold_cov": 0.5
+    },
+    {
+      "query": "which components does the top-level jwt decode flow invoke",
+      "seed": "PyJWT.decode",
+      "gold": [
+        "jwt/api_jws.py"
+      ],
+      "flat_recall@10": 1.0,
+      "graph_recall@10": 1.0,
+      "flat_tokens": 322,
+      "graph_tokens": 1113,
+      "flat_gold_cov": 1.0,
+      "graph_gold_cov": 1.0
+    }
+  ]
+}
